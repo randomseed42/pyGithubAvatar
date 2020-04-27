@@ -66,7 +66,7 @@ class NumAvatar(object):
                 [0, 4, 3, 1],
             ]),
             7: np.array([
-                [0, 0, 1, 1],
+                [0, 0, 2, 1],
                 [2, 0, 1, 5],
             ]),
             8: np.array([
