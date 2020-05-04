@@ -9,13 +9,13 @@ This simple python code will help you to generate image file with two digit numb
 
 ## Usage
 
-Simply import `NumAvatar` class and run `avatar(num, path='path')` like below:
+Simply import `CharAvatar` class and run `avatar(twoChars, path='path')` like below:
 
 ```python
-from pyGithubAvatar import NumAvatar
+from pyGithubAvatar import CharAvatar
 
-gna = NumAvatar()
-gna.avatar(42, path='img/42.png')
+gca = CharAvatar()
+gca.avatar(42, path='img/42.png')
 ```
 
 ## Options
@@ -23,7 +23,7 @@ gna.avatar(42, path='img/42.png')
 You can also customize it with below options:
 
 ```python
-gna_options = {
+gca_options = {
     'top_border': 10,
     'left_border': 20,
     'right_border': 20,
@@ -34,10 +34,10 @@ gna_options = {
     'fg_rgba': [200, 60, 60, 255],
 }
 
-gna = NumAvatar(**gna_options)
-gna.avatar(63) # if no path specified, will plot in window or shown in jupyter notebook
+gca = CharAvatar(**gca_options)
+gca.avatar('RS') # if no path specified, will plot in window or shown in jupyter notebook
 ```
-![63](./img/63.png)
+![RS](./img/RS.png)
 
 ## License
 
