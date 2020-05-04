@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-class NumAvatar(object):
+class CharAvatar(object):
     def __init__(self, 
             top_border=35,
             left_border=35,
@@ -22,82 +22,233 @@ class NumAvatar(object):
         self.bg_rgba = bg_rgba
         self.fg_rgba = fg_rgba
 
-        self.num_dict = {
-            0: np.array([
+        self.char_dict = {
+            # in the form of [left, top, width, height]
+            '0': np.array([
                 [0, 0, 3, 1],
                 [0, 1, 1, 3],
                 [2, 1, 1, 3],
                 [0, 4, 3, 1],
             ]),
-            1: np.array([
+            '1': np.array([
                 [2, 0, 1, 5],
             ]),
-            2: np.array([
+            '2': np.array([
                 [0, 0, 3, 1],
                 [2, 1, 1, 1],
                 [0, 2, 3, 1],
                 [0, 3, 1, 1],
                 [0, 4, 3, 1],
             ]),
-            3: np.array([
+            '3': np.array([
                 [0, 0, 3, 1],
                 [2, 1, 1, 1],
                 [0, 2, 3, 1],
                 [2, 3, 1, 1],
                 [0, 4, 3, 1],
             ]),
-            4: np.array([
+            '4': np.array([
                 [0, 0, 1, 3],
                 [1, 2, 1, 1],
                 [2, 0, 1, 5],
             ]),
-            5: np.array([
+            '5': np.array([
                 [0, 0, 3, 1],
                 [0, 1, 1, 1],
                 [0, 2, 3, 1],
                 [2, 3, 1, 1],
                 [0, 4, 3, 1],
             ]),
-            6: np.array([
+            '6': np.array([
                 [0, 0, 3, 1],
                 [0, 1, 1, 3],
                 [0, 2, 3, 1],
                 [2, 3, 1, 1],
                 [0, 4, 3, 1],
             ]),
-            7: np.array([
+            '7': np.array([
                 [0, 0, 2, 1],
                 [2, 0, 1, 5],
             ]),
-            8: np.array([
+            '8': np.array([
                 [0, 0, 3, 1],
                 [0, 1, 1, 3],
                 [2, 1, 1, 3],
                 [1, 2, 1, 1],
                 [0, 4, 3, 1],
             ]),
-            9: np.array([
+            '9': np.array([
                 [0, 0, 3, 1],
                 [0, 1, 1, 2],
                 [2, 1, 1, 3],
                 [1, 2, 1, 1],
                 [0, 4, 3, 1],
             ]),
+            'A': np.array([
+                [1, 0, 1, 1],
+                [0, 1, 1, 4],
+                [2, 1, 1, 4],
+                [1, 2, 1, 1],
+            ]),
+            'B': np.array([
+                [0, 0, 2, 1],
+                [0, 1, 1, 3],
+                [0, 4, 2, 1],
+                [1, 2, 1, 1],
+                [2, 1, 1, 1],
+                [2, 3, 1, 1],
+            ]),
+            'C': np.array([
+                [0, 1, 1, 3],
+                [1, 0, 1, 1],
+                [1, 4, 1, 1],
+                [2, 1, 1, 1],
+                [2, 3, 1, 1],
+            ]),
+            'D': np.array([
+                [0, 0, 1, 5],
+                [1, 0, 1, 1],
+                [1, 4, 1, 1],
+                [2, 1, 1, 3],
+            ]),
+            'E': np.array([
+                [0, 0, 1, 5],
+                [1, 0, 2, 1],
+                [1, 2, 1, 1],
+                [1, 4, 2, 1],
+            ]),
+            'F': np.array([
+                [0, 0, 1, 5],
+                [1, 0, 2, 1],
+                [1, 2, 1, 1],
+            ]),
+            'G': np.array([
+                [1, 0, 2, 1],
+                [0, 1, 1, 3],
+                [1, 4, 2, 1],
+                [2, 3, 1, 1],
+            ]),
+            'H': np.array([
+                [0, 0, 1, 5],
+                [2, 0, 1, 5],
+                [1, 2, 1, 1],
+            ]),
+            'I': np.array([
+                [0, 0, 3, 1],
+                [1, 1, 1, 3],
+                [0, 4, 3, 1],
+            ]),
+            'J': np.array([
+                [2, 0, 1, 4],
+                [0, 3, 1, 1],
+                [1, 4, 1, 1],
+            ]),
+            'K': np.array([
+                [0, 0, 1, 5],
+                [1, 1, 1, 2],
+                [2, 0, 1, 1],
+                [2, 3, 1, 2],
+            ]),
+            'L': np.array([
+                [0, 0, 1, 5],
+                [1, 4, 2, 1],
+            ]),
+            'M': np.array([
+                [0, 0, 1, 5],
+                [1, 1, 1, 2],
+                [2, 0, 1, 5],
+            ]),
+            'N': np.array([
+                [0, 0, 1, 5],
+                [1, 0, 1, 1],
+                [2, 1, 1, 4],
+            ]),
+            'O': np.array([
+                [1, 0, 1, 1],
+                [0, 1, 1, 3],
+                [2, 1, 1, 3],
+                [1, 4, 1, 1],
+            ]),
+            'P': np.array([
+                [0, 0, 1, 5],
+                [1, 0, 1, 1],
+                [1, 2, 1, 1],
+                [2, 1, 1, 1],
+            ]),
+            'Q': np.array([
+                [1, 0, 1, 1],
+                [0, 1, 1, 1],
+                [1, 2, 1, 1],
+                [2, 0, 1, 5],
+            ]),
+            'R': np.array([
+                [0, 0, 1, 5],
+                [1, 0, 1, 1],
+                [1, 2, 1, 1],
+                [2, 1, 1, 1],
+                [2, 3, 1, 2],
+            ]),
+            'S': np.array([
+                [1, 0, 2, 1],
+                [0, 1, 1, 1],
+                [1, 2, 1, 1],
+                [2, 3, 1, 1],
+                [0, 4, 2, 1],
+            ]),
+            'T': np.array([
+                [0, 0, 3, 1],
+                [1, 1, 1, 4],
+            ]),
+            'U': np.array([
+                [0, 0, 1, 4],
+                [2, 0, 1, 4],
+                [1, 4, 1, 1],
+            ]),
+            'V': np.array([
+                [0, 0, 1, 3],
+                [2, 0, 1, 3],
+                [1, 3, 1, 2],
+            ]),
+            'W': np.array([
+                [0, 0, 1, 5],
+                [1, 2, 1, 2],
+                [2, 0, 1, 5],
+            ]),
+            'X': np.array([
+                [0, 0, 1, 2],
+                [2, 0, 1, 2],
+                [1, 2, 1, 1],
+                [0, 3, 1, 2],
+                [2, 3, 1, 2],
+            ]),
+            'Y': np.array([
+                [0, 0, 1, 2],
+                [2, 0, 1, 2],
+                [1, 2, 1, 3],
+            ]),
+            'Z': np.array([
+                [0, 0, 3, 1],
+                [2, 1, 1, 1],
+                [1, 2, 1, 1],
+                [0, 3, 1, 1],
+                [0, 4, 3, 1],
+            ]),
         }
-    
-    def avatar(self, num, path=None):
+
+
+    def avatar(self, twoChars, path=None):
         self.img_width = self.line_width*7 + self.left_border + self.right_border
         self.img_height = self.line_height*5 + self.top_border + self.bottom_border
 
         self.img = np.zeros((self.img_height, self.img_width, 4), dtype='uint8')
         self.img[:, :] = self.bg_rgba
 
-        digits = {1: num % 10, 0: num // 10}
+        chars = list(str(twoChars))
 
-        for digit in digits:
-            left_padding = digit*4*self.line_width + self.left_border
+        for pos, char in enumerate(chars):
+            left_padding = pos*4*self.line_width + self.left_border
             top_padding = self.top_border
-            for block in self.num_dict[digits[digit]]:
+            for block in self.char_dict[char]:
                 left, right, top, bottom = (
                     block[0]*self.line_width + left_padding,
                     (block[0]+block[2])*self.line_width + left_padding,
@@ -116,5 +267,11 @@ class NumAvatar(object):
 
 
 if __name__ == '__main__':
-    gna = NumAvatar()
-    gna.avatar(42, path='./img/42.png')
+    gca = CharAvatar()
+    gca.avatar(42)
+
+    for i in range(int(10/2)):
+        gca.avatar(f'{i*2}{i*2+1}')
+
+    for i in range(int(26/2)):
+        gca.avatar(chr(i*2+65)+chr(i*2+1+65))
